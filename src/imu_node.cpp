@@ -482,6 +482,8 @@ private:
         q_new = q_rot * q_orig;
         q_new.normalize();
 
+        imu_trueEast_data.header.stamp = this->get_clock()->now();
+        imu_trueEast_data.header.frame_id = imu_frame_id_.c_str();
         imu_trueEast_data.orientation.x = q_new.x();
         imu_trueEast_data.orientation.y = q_new.y();
         imu_trueEast_data.orientation.z = q_new.z();
